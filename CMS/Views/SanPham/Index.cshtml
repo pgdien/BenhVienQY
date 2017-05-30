@@ -1,0 +1,93 @@
+﻿@model CMS.Models.Product
+@{
+    ViewBag.Title = @Model.title;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!--Từng sản phẩm-->
+<section class="tungsanpham col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="productController">
+    <article class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <span us-spinner="{radius:15, width:4, length: 8}"></span>
+        <img ng-src="{{product.image}}" alt="" class="col-xs-12 col-sm-5 col-md-5 col-lg-5" />
+        <div class="info col-xs-12 col-sm-7 col-md-7 col-lg-7">
+            <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{product.title}}</p>
+            <button type="submit" data-toggle="modal" data-target="#datHang">Mua hàng</button>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- Nav tabs -->
+                <div class="card">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#mota" aria-controls="mota" role="tab" data-toggle="tab">Mô tả sản phẩm</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số sản phẩm</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="mota" ng-bind-html="product.content">
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="thongso" ng-bind-html="product.description">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="tel:01266419960" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><i class="fa fa-phone"></i><span>Tư vấn ngay : </span>0126 641 99 60</a>
+        </div>
+    </article>
+
+    @*Sản phẩm cùng loại*@
+    <aside class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <input type="hidden" value="@Model.idProduct" id="idProduct" />
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Sản phẩm cùng loại
+        </p>
+        <div class="cacsanpham col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <span us-spinner="{radius:15, width:4, length: 8}"></span>
+            <div class="sanpham col-xs-12 col-sm-12 col-md-12 col-lg-12" dir-paginate="(index, value) in products | itemsPerPage:4">
+                <a href="/san-pham/{{value.alias}}-{{value.idProduct}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        {{value.title}}
+                    </p>
+                    <img ng-src="{{value.image}}" alt="" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" />
+                    <div class="info col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <p class="detail col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-bind-html="product.note|limitTo:100"></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+</section>
+
+<!-- Đăng ký sản phẩm -->
+<div id="datHang" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#109917">
+                <button type="button" class="close" data-dismiss="modal" style="color:#fff; border:0;">&times;</button>
+                <p class="modal-title" style="color:#fff;">Thông tin liên hệ mua hàng</p>
+            </div>
+            <div class="modal-body" style="height: 1%; overflow: hidden; margin: 2em 0 3em 0;">
+                <div class="info col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0;">
+                    <p class="co-name col-xs-12 col-sm-12 col-md-12 col-lg-12" style="font-family: Roboto-Black; font-size: 1.8em; text-transform: uppercase; text-align: center; padding: 0 2em;">
+                        Công ty TNHH SX thương mại và dịch vụ hùng tuyết
+                    </p>
+                    <p class="co-info col-xs-12 col-sm-12 col-md-12 col-lg-12" style="font-family: Roboto-Light; font-size: 1.3em; line-height: 2em; letter-spacing: 0.05em;">
+                        <span class="first" style="font-family: Roboto-Regular; font-weight: bold;">Đại diện: </span>(Bà) Nguyễn Thị Tuyết<br />
+                        <span class="first" style="font-family: Roboto-Regular; font-weight: bold;">Chức vụ: </span>Chủ doanh nghiệp<br />
+                        <span class="first" style="font-family: Roboto-Regular; font-weight: bold;">Địa chỉ: </span>43N Lê Lai, Ngô Quyền, Hải Phòng.<br />
+                        <span class="first" style="font-family: Roboto-Regular; font-weight: bold;">Điện thoại: </span><a href="tel:0313654097">0313.654.097</a> - <a href="tel:0904482018">0904.482.018</a><br />
+                        <span class="first" style="font-family: Roboto-Regular; font-weight: bold;">Email: </span><a href="mailto:hungtuyet1970@gmail.com">hungtuyet1970@gmail.com</a><br />
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="border:0; background-color:#109917; color:#fff;">Đóng</button>
+
+            </div>
+        </div>
+    </div>
+</div>

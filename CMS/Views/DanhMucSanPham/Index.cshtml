@@ -1,0 +1,43 @@
+﻿@*@model CMS.Models.Product*@
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+}
+
+<!--Danh mục các loại sản phẩm. Trang sản phẩm lớn từ menu-->
+<section class="danhmucsanpham col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="categoryProductController">
+
+    <!--Banner-->
+    <div class="banner hidden-xs col-sm-12 col-md-12 col-lg-12">
+        <p class="col-sm-5 col-md-5 col-lg-5">
+            <span>SẢN PHẨM CỦA CHÚNG TÔI</span><br />
+            Chúng tôi luôn luôn cung cấp tới quý khách những sản phẩm chất lượng, tuyệt hảo nhất.
+            Đem đến phong thái sang trọng, lịch lãm và hơn hết là chất lượng dành cho quý khách
+        </p>
+    </div>
+
+    <!--Danh mục sản phẩm-->
+    <article class="danhmuc col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <span us-spinner="{radius:15, width:4, length: 8}"></span>
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Danh mục sản phẩm
+        </p>
+        <div class="cacsanpham col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <span us-spinner="{radius:15, width:4, length: 8}"></span>
+            <!--Rèm vải-->
+            <div class="sanpham col-xs-12 col-sm-4 col-md-3 col-lg-3" ng-repeat="(index, value) in categoryProducts">
+                <a href="/danh-muc-san-pham/{{value.alias}}-{{value.idCategory}}">
+                    <img ng-src="{{value.image}}"/>
+                    <div class="info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>{{value.image}}</p>
+                        <p class="title rv col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            {{value.title}}
+                        </p>
+                        @*<p class="detail col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            {{value.description}}
+                        </p>*@
+                    </div>
+                </a>
+            </div>
+        </div>
+    </article>
+</section>

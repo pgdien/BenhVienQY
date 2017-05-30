@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BenhVienQYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BacSi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hoTen" Type="nvarchar(max)" />
+          <Property Name="alias" Type="nvarchar(max)" />
+          <Property Name="diaChi" Type="nvarchar(max)" />
+          <Property Name="sdt" Type="nchar" MaxLength="15" />
+          <Property Name="ngaySinh" Type="datetime" />
+          <Property Name="gioiTinh" Type="nchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="fb" Type="nvarchar(max)" />
+          <Property Name="zalo" Type="nvarchar(max)" />
+          <Property Name="anh" Type="nvarchar(max)" />
+          <Property Name="chucVu" Type="nvarchar" MaxLength="50" />
+          <Property Name="congViec" Type="nvarchar" MaxLength="50" />
+          <Property Name="thongTinKhac" Type="nvarchar(max)" />
+          <Property Name="featured" Type="int" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="250" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="text_link" Type="nvarchar" MaxLength="20" />
+          <Property Name="image" Type="ntext" />
+          <Property Name="ghichu" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="idCategory" />
+          </Key>
+          <Property Name="idCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCategoryParent" Type="int" />
+          <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+          <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+          <Property Name="timeCreated" Type="datetime" />
+          <Property Name="timeModified" Type="datetime" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="alias" Type="varchar(max)" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="published" Type="int" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="tags" Type="nvarchar(max)" />
+          <Property Name="version" Type="varchar" MaxLength="50" />
+          <Property Name="deleted" Type="int" />
+          <Property Name="metadescription" Type="nvarchar(max)" />
+          <Property Name="metakewords" Type="nvarchar(max)" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="robots" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CategoryProduct">
+          <Key>
+            <PropertyRef Name="idCategory" />
+          </Key>
+          <Property Name="idCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCategoryParent" Type="int" />
+          <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+          <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+          <Property Name="timeCreated" Type="datetime" />
+          <Property Name="timeModified" Type="datetime" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="alias" Type="varchar(max)" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="published" Type="int" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="tags" Type="nvarchar(max)" />
+          <Property Name="version" Type="varchar" MaxLength="50" />
+          <Property Name="deleted" Type="int" />
+          <Property Name="metadescription" Type="nvarchar(max)" />
+          <Property Name="metakewords" Type="nvarchar(max)" />
+          <Property Name="author" Type="nvarchar(max)" />
+          <Property Name="robots" Type="varchar" MaxLength="50" />
+          <Property Name="image_banner" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="idContact" />
+          </Key>
+          <Property Name="idContact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar(max)" />
+          <Property Name="sdt" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="200" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="content" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="timeCreated" Type="datetime" />
+          <Property Name="timeModified" Type="datetime" />
+          <Property Name="title" Type="nvarchar" MaxLength="500" />
+          <Property Name="alias" Type="varchar(max)" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="published" Type="int" />
+          <Property Name="anh" Type="nvarchar(max)" />
+          <Property Name="tags" Type="nvarchar(max)" />
+          <Property Name="version" Type="varchar" MaxLength="50" />
+          <Property Name="deleted" Type="int" />
+          <Property Name="featured" Type="int" />
+          <Property Name="metadescription" Type="nvarchar(max)" />
+          <Property Name="metakewords" Type="nvarchar(max)" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="robots" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="idPost" />
+          </Key>
+          <Property Name="idPost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCategory" Type="int" Nullable="false" />
+          <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+          <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+          <Property Name="timeCreated" Type="datetime" />
+          <Property Name="timeModified" Type="datetime" />
+          <Property Name="title" Type="nvarchar" MaxLength="500" />
+          <Property Name="alias" Type="varchar(max)" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="published" Type="int" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="tags" Type="nvarchar(max)" />
+          <Property Name="version" Type="varchar" MaxLength="50" />
+          <Property Name="deleted" Type="int" />
+          <Property Name="featured" Type="int" />
+          <Property Name="metadescription" Type="nvarchar(max)" />
+          <Property Name="metakewords" Type="nvarchar(max)" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="robots" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="idProduct" />
+          </Key>
+          <Property Name="idProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCategoryProduct" Type="int" />
+          <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+          <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+          <Property Name="timeCreated" Type="datetime" />
+          <Property Name="timeModified" Type="datetime" />
+          <Property Name="maSP" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="alias" Type="varchar(max)" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="sale" Type="float" />
+          <Property Name="soLuong" Type="int" />
+          <Property Name="price" Type="float" />
+          <Property Name="published" Type="int" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="tags" Type="nvarchar(max)" />
+          <Property Name="version" Type="varchar" MaxLength="50" />
+          <Property Name="deleted" Type="int" />
+          <Property Name="feature" Type="int" />
+          <Property Name="metadescription" Type="nvarchar(max)" />
+          <Property Name="metakewords" Type="nvarchar(max)" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="robots" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="56" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Category_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="idCategory" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="idCategoryParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryProduct_CategoryProduct">
+          <End Role="CategoryProduct" Type="Self.CategoryProduct" Multiplicity="0..1" />
+          <End Role="CategoryProduct1" Type="Self.CategoryProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryProduct">
+              <PropertyRef Name="idCategory" />
+            </Principal>
+            <Dependent Role="CategoryProduct1">
+              <PropertyRef Name="idCategoryParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BenhVienQYModelStoreContainer">
+          <EntitySet Name="BacSi" EntityType="Self.BacSi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryProduct" EntityType="Self.CategoryProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Category_Category" Association="Self.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryProduct_CategoryProduct" Association="Self.FK_CategoryProduct_CategoryProduct">
+            <End Role="CategoryProduct" EntitySet="CategoryProduct" />
+            <End Role="CategoryProduct1" EntitySet="CategoryProduct" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BenhVienQYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BenhVienQYEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BacSi" EntityType="BenhVienQYModel.BacSi" />
+          <EntitySet Name="Banner" EntityType="BenhVienQYModel.Banner" />
+          <EntitySet Name="Category" EntityType="BenhVienQYModel.Category" />
+          <EntitySet Name="CategoryProduct" EntityType="BenhVienQYModel.CategoryProduct" />
+          <EntitySet Name="Contact" EntityType="BenhVienQYModel.Contact" />
+          <EntitySet Name="Image" EntityType="BenhVienQYModel.Image" />
+          <EntitySet Name="Post" EntityType="BenhVienQYModel.Post" />
+          <EntitySet Name="Product" EntityType="BenhVienQYModel.Product" />
+          <EntitySet Name="User" EntityType="BenhVienQYModel.User" />
+          <EntitySet Name="webpages_Membership" EntityType="BenhVienQYModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="BenhVienQYModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="BenhVienQYModel.webpages_Roles" />
+          <AssociationSet Name="FK_Category_Category" Association="BenhVienQYModel.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryProduct_CategoryProduct" Association="BenhVienQYModel.FK_CategoryProduct_CategoryProduct">
+            <End Role="CategoryProduct" EntitySet="CategoryProduct" />
+            <End Role="CategoryProduct1" EntitySet="CategoryProduct" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="BenhVienQYModel.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BacSi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="ngaySinh" Type="DateTime" Precision="3" />
+          <Property Name="gioiTinh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="zalo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="congViec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="thongTinKhac" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="featured" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="text_link" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="idCategory" />
+          </Key>
+          <Property Name="idCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCategoryParent" Type="Int32" />
+          <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreated" Type="DateTime" Precision="3" />
+          <Property Name="timeModified" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="published" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleted" Type="Int32" />
+          <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category1" Relationship="BenhVienQYModel.FK_Category_Category" FromRole="Category" ToRole="Category1" />
+          <NavigationProperty Name="Category2" Relationship="BenhVienQYModel.FK_Category_Category" FromRole="Category1" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="CategoryProduct">
+          <Key>
+            <PropertyRef Name="idCategory" />
+          </Key>
+          <Property Name="idCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCategoryParent" Type="Int32" />
+          <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreated" Type="DateTime" Precision="3" />
+          <Property Name="timeModified" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="published" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleted" Type="Int32" />
+          <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image_banner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CategoryProduct1" Relationship="BenhVienQYModel.FK_CategoryProduct_CategoryProduct" FromRole="CategoryProduct" ToRole="CategoryProduct1" />
+          <NavigationProperty Name="CategoryProduct2" Relationship="BenhVienQYModel.FK_CategoryProduct_CategoryProduct" FromRole="CategoryProduct1" ToRole="CategoryProduct" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="idContact" />
+          </Key>
+          <Property Name="idContact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hoten" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="timeCreated" Type="DateTime" Precision="3" />
+          <Property Name="timeModified" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="published" Type="Int32" />
+          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleted" Type="Int32" />
+          <Property Name="featured" Type="Int32" />
+          <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="idPost" />
+          </Key>
+          <Property Name="idPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCategory" Type="Int32" Nullable="false" />
+          <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreated" Type="DateTime" Precision="3" />
+          <Property Name="timeModified" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="published" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleted" Type="Int32" />
+          <Property Name="featured" Type="Int32" />
+          <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="idProduct" />
+          </Key>
+          <Property Name="idProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCategoryProduct" Type="Int32" />
+          <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreated" Type="DateTime" Precision="3" />
+          <Property Name="timeModified" Type="DateTime" Precision="3" />
+          <Property Name="maSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sale" Type="Double" />
+          <Property Name="soLuong" Type="Int32" />
+          <Property Name="price" Type="Double" />
+          <Property Name="published" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deleted" Type="Int32" />
+          <Property Name="feature" Type="Int32" />
+          <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webpages_Roles" Relationship="BenhVienQYModel.webpages_UsersInRoles" FromRole="User" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="BenhVienQYModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Category_Category">
+          <End Type="BenhVienQYModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="BenhVienQYModel.Category" Role="Category1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="idCategory" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="idCategoryParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryProduct_CategoryProduct">
+          <End Type="BenhVienQYModel.CategoryProduct" Role="CategoryProduct" Multiplicity="0..1" />
+          <End Type="BenhVienQYModel.CategoryProduct" Role="CategoryProduct1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryProduct">
+              <PropertyRef Name="idCategory" />
+            </Principal>
+            <Dependent Role="CategoryProduct1">
+              <PropertyRef Name="idCategoryParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Type="BenhVienQYModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+          <End Type="BenhVienQYModel.User" Role="User" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BenhVienQYModelStoreContainer" CdmEntityContainer="BenhVienQYEntities">
+          <EntitySetMapping Name="BacSi">
+            <EntityTypeMapping TypeName="BenhVienQYModel.BacSi">
+              <MappingFragment StoreEntitySet="BacSi">
+                <ScalarProperty Name="featured" ColumnName="featured" />
+                <ScalarProperty Name="thongTinKhac" ColumnName="thongTinKhac" />
+                <ScalarProperty Name="congViec" ColumnName="congViec" />
+                <ScalarProperty Name="chucVu" ColumnName="chucVu" />
+                <ScalarProperty Name="anh" ColumnName="anh" />
+                <ScalarProperty Name="zalo" ColumnName="zalo" />
+                <ScalarProperty Name="fb" ColumnName="fb" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+                <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="BenhVienQYModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="text_link" ColumnName="text_link" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="BenhVienQYModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="robots" ColumnName="robots" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+                <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="published" ColumnName="published" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+                <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+                <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+                <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+                <ScalarProperty Name="idCategoryParent" ColumnName="idCategoryParent" />
+                <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryProduct">
+            <EntityTypeMapping TypeName="BenhVienQYModel.CategoryProduct">
+              <MappingFragment StoreEntitySet="CategoryProduct">
+                <ScalarProperty Name="image_banner" ColumnName="image_banner" />
+                <ScalarProperty Name="robots" ColumnName="robots" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+                <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="published" ColumnName="published" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+                <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+                <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+                <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+                <ScalarProperty Name="idCategoryParent" ColumnName="idCategoryParent" />
+                <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="BenhVienQYModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="idContact" ColumnName="idContact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="BenhVienQYModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="robots" ColumnName="robots" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+                <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+                <ScalarProperty Name="featured" ColumnName="featured" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="anh" ColumnName="anh" />
+                <ScalarProperty Name="published" ColumnName="published" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+                <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="BenhVienQYModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="robots" ColumnName="robots" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+                <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+                <ScalarProperty Name="featured" ColumnName="featured" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="published" ColumnName="published" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+                <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+                <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+                <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+                <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+                <ScalarProperty Name="idPost" ColumnName="idPost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="BenhVienQYModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="robots" ColumnName="robots" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+                <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+                <ScalarProperty Name="feature" ColumnName="feature" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="published" ColumnName="published" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="soLuong" ColumnName="soLuong" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="maSP" ColumnName="maSP" />
+                <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+                <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+                <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+                <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+                <ScalarProperty Name="idCategoryProduct" ColumnName="idCategoryProduct" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="BenhVienQYModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="BenhVienQYModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="BenhVienQYModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="BenhVienQYModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="BenhVienQYModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="User">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

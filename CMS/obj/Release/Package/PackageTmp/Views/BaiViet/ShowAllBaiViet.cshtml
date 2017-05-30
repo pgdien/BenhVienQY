@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Tổng hợp tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="childCategoryPostController">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12 BaiVietLienQuan">
+        <p class="TieuDe">Tất cả các bài biết</p>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 GoiY" dir-paginate="(index, value) in posts | itemsPerPage:12">
+            <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">
+                <img src="{{value.image}}" class="img-responsive" />
+                <p class="TenBai">{{value.title}}</p>
+                <p class="TomTat">{{value.description | limitTo: 100}}{{value.description.length > 100 ? '&hellip;' : ''}}</p>
+            </a>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ccontainer" style="text-align:center"><dir-pagination-controls></dir-pagination-controls></div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/BenhVienQY" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Project\\KNT\\BenhVienQY\\CMS\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Project\\KNT\\BenhVienQY\\CMS\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BenhVienQYEntities-Web.config Connection String" description="" value="metadata=res://*/Models.BenhVienQY.csdl|res://*/Models.BenhVienQY.ssdl|res://*/Models.BenhVienQY.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DELL1\SQL2008;initial catalog=BenhVienQY;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Project\\KNT\\BenhVienQY\\CMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BenhVienQYEntities']/@connectionString" />
+  </parameter>
+  <parameter name="CMS-Web.config Connection String" description="" value="data source=DELL1\SQL2008;initial catalog=BenhVienQY;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Project\\KNT\\BenhVienQY\\CMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CMS']/@connectionString" />
+  </parameter>
+</parameters>

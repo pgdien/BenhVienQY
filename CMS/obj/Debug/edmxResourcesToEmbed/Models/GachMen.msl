@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GachMenLongKhanhModelStoreContainer" CdmEntityContainer="GachMenLongKhanhEntities">
+    <EntitySetMapping Name="Banner">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Banner">
+        <MappingFragment StoreEntitySet="Banner">
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="text_link" ColumnName="text_link" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="robots" ColumnName="robots" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+          <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+          <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+          <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+          <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+          <ScalarProperty Name="idCategoryParent" ColumnName="idCategoryParent" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryProduct">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.CategoryProduct">
+        <MappingFragment StoreEntitySet="CategoryProduct">
+          <ScalarProperty Name="image_banner" ColumnName="image_banner" />
+          <ScalarProperty Name="robots" ColumnName="robots" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+          <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+          <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+          <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+          <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+          <ScalarProperty Name="idCategoryParent" ColumnName="idCategoryParent" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="idContact" ColumnName="idContact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="idCategoryProduct" ColumnName="idCategoryProduct" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="checked" ColumnName="checked" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="soLuong" ColumnName="soLuong" />
+          <ScalarProperty Name="sanPham" ColumnName="sanPham" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="robots" ColumnName="robots" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+          <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+          <ScalarProperty Name="featured" ColumnName="featured" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+          <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+          <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+          <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="idPost" ColumnName="idPost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="robots" ColumnName="robots" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="metakewords" ColumnName="metakewords" />
+          <ScalarProperty Name="metadescription" ColumnName="metadescription" />
+          <ScalarProperty Name="feature" ColumnName="feature" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="ChatLieu" ColumnName="ChatLieu" />
+          <ScalarProperty Name="KichThuoc" ColumnName="KichThuoc" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="timeModified" ColumnName="timeModified" />
+          <ScalarProperty Name="timeCreated" ColumnName="timeCreated" />
+          <ScalarProperty Name="idUserModified" ColumnName="idUserModified" />
+          <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+          <ScalarProperty Name="idCategoryProduct" ColumnName="idCategoryProduct" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Video">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="link_post" ColumnName="link_post" />
+          <ScalarProperty Name="link_video" ColumnName="link_video" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.webpages_Membership">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Roles">
+      <EntityTypeMapping TypeName="GachMenLongKhanhModel.webpages_Roles">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="GachMenLongKhanhModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="webpages_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

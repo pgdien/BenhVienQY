@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Dịch vụ khách sạn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="dichvu col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="categoryPostController">
+    <input type="hidden" value="4" id="idCategory" />
+    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+    <!--Banner-->
+    <div class="banner hidden-xs col-sm-12 col-md-12 col-lg-12">
+        <img src="~/Content/Front/images/dichvu/banner.png" alt="" />
+        <div class="opacity"></div>
+
+        <!--Text-->
+        <p>Dịch vụ khách sạn</p>
+    </div>
+
+    <!--Dịch vụ-->
+    <div class="cacdiadiem col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p ng-hide="posts.length > 0" style="text-align:center; font-size:2em; color:#0c7b07">Chưa có bài viết nào</p>
+        <div class="view view-sixth dd-1 col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-class="{'col-md-6 col-lg-6':(index % 5 < 2),'col-md-4 col-lg-4':(index % 5 >= 2)}" ng-repeat="(index, value) in posts" ng-show="posts.length > 0">
+            <img class="visible-md visible-lg" ng-src="{{value.image}}" alt="{{value.title}}" ng-hide="index % 5 < 2" />
+            <img class="visible-md visible-lg" ng-src="{{value.imageNgang}}" alt="{{value.title}}" ng-show="index % 5 < 2" />
+            <img class="visible-xs" ng-src="{{value.image}}" alt="{{value.title}}" />
+            <img class="visible-sm" ng-src="{{value.imageNgang}}" alt="{{value.title}}" />
+            <div class="mask">
+                <h3>{{value.title}}</h3>
+                <p ng-bind-html="value.content | limitTo:200"></p>
+                <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="info">Đọc tiếp</a>
+            </div>
+        </div>
+
+
+        <!--Địa điểm-->
+        @*@for (int i = 1; i <= 7; i++)
+            {
+                if (i <= 2 || i > 5)
+                {
+                <div class="view view-sixth dd-1 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <img src="~/Content/Front/images/dichvu/dichvu-1.png" />
+                    <div class="mask">
+                        <h3>Đi lặn</h3>
+                        <p>Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời.</p>
+                        <a href="@Url.Action("BaiViet","Home")" class="info">Đọc tiếp</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="view view-sixth dd-1 col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img src="~/Content/Front/images/dichvu/dichvu-7.png" />
+                    <div class="mask">
+                        <h3>Leo núi</h3>
+                        <p>Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời. Cát bà đẹp tuyệt vời.</p>
+                        <a href="@Url.Action("BaiViet","Home")" class="info">Đọc tiếp</a>
+                    </div>
+                </div>
+            }
+        }*@
+    </div>
+</section>

@@ -1,0 +1,122 @@
+﻿@model CMS.Models.BacSi
+
+@{
+    ViewBag.Title = "Thêm bác sĩ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="myApp">
+    <div ng-controller="themBacSiController">
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="saveBacSi()"><span class="fa fa-edit"></span> Lưu</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="saveBacSiAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="saveBacSiAndNew()"><span class="fa fa-plus"></span> Lưu & Thêm mới</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="cancel()"><span class="fa fa-remove"></span> Hủy bỏ</button>
+            </div>
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="card-head">
+                        <ul class="nav nav-tabs" data-toggle="tabs">
+                            <li class="active"><a href="#noidung">Bác sĩ</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body tab-content">
+                        <div class="tab-pane active" id="noidung">
+                            <div class="col-md-9">
+                                <form class="form" role="form">
+                                    <div class="form-group  " ng-class="{'has-error':!bacSi.hoTen, 'has-success':bacSi.hoTen}">
+                                        <input type="text" class="form-control" id="hoTen" name="hoTen" ng-model="bacSi.hoTen" ng-change="changeTitle()">
+                                        <label for="hoTen">Họ tên *</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="alias" ng-model="bacSi.alias" name="alias" readonly>
+                                        <label for="alias">Alias</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-error':!bacSi.diaChi, 'has-success':bacSi.diaChi}">
+                                        <input type="text" class="form-control" id="diaChi" name="diaChi" ng-model="bacSi.diaChi" ng-change="changeTitle()">
+                                        <label for="diaChi">Địa chỉ *</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-error':!bacSi.sdt, 'has-success':bacSi.sdt}">
+                                        <input type="text" class="form-control" id="sdt" name="sdt" ng-model="bacSi.sdt" ng-change="changeTitle()">
+                                        <label for="sdt">Số điện thoại *</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-error':!bacSi.ngaySinh, 'has-success':bacSi.ngaySinh}">
+                                        <input type="date" class="form-control" id="ngaySinh" name="ngaySinh" ng-model="bacSi.ngaySinh" ng-change="changeTitle()">
+                                        <label for="ngaySinh">Ngày sinh *</label>
+                                    </div>
+                                    <div class="form-group ">
+                                        <select id="gioiTinh" name="gioiTinh" class="form-control " ng-model="bacSi.gioiTinh" ng-class="{'has-error':!bacSi.gioiTinh, 'has-success':bacSi.gioiTinh}">
+                                            <option value="2" ng-selected="bacSi.gioiTinh == 2">Nam</option>
+                                            <option value="1" ng-selected="bacSi.gioiTinh == 1">Nữ</option>
+                                            <option value="0" ng-selected="bacSi.gioiTinh == 0">Không xác định</option>
+                                        </select>
+                                        <label for="gioiTinh">Giới tính</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-error':!bacSi.chucVu, 'has-success':bacSi.chucVu}">
+                                        <input type="text" class="form-control" id="chucVu" name="chucVu" ng-model="bacSi.chucVu" ng-change="changeTitle()">
+                                        <label for="chucVu">Chức vụ *</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-error':!bacSi.congViec, 'has-success':bacSi.congViec}">
+                                        <input type="text" class="form-control" id="congViec" name="congViec" ng-model="bacSi.congViec" ng-change="changeTitle()">
+                                        <label for="congViec">Họ tên *</label>
+                                    </div>
+                                    <div class="form-group ">
+                                        <textarea name="thongTinKhac" id="thongTinKhac" class="form-control" rows="3" placeholder="" ng-model="bacSi.thongTinKhac"></textarea>
+                                        <label for="thongTinKhac">Thông tin khác</label>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <form class="form" role="form">
+                                    <div class="form-group ">
+                                        <select id="featured" name="featured" class="form-control" ng-model="bacSi.featured">
+                                            <option value="1" ng-selected="bacSi.featured == 1">Có</option>
+                                            <option value="0" ng-selected="bacSi.featured == 0">Không</option>
+                                        </select>
+                                        <label for="featured">Nổi bật</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="anh" id="anh" ng-model="bacSi.anh" class="form-control" /> <button class="btn btn-primary" ng-click="chooseImage()">Chọn ảnh</button>
+                                        <label for="anh">Ảnh đại diện</label>
+                                        <img class="img-responsive" ng-src="{{bacSi.anh}}" ng-show="bacSi.anh" />
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-success':bacSi.email}">
+                                        <input type="text" class="form-control" id="email" name="email" ng-model="bacSi.email" ng-change="changeTitle()">
+                                        <label for="email">Email *</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-success':bacSi.fb}">
+                                        <input type="text" class="form-control" id="fb" name="fb" ng-model="bacSi.fb" ng-change="changeTitle()">
+                                        <label for="fb">Facebook *</label>
+                                    </div>
+                                    <div class="form-group  " ng-class="{'has-success':bacSi.zalo}">
+                                        <input type="text" class="form-control" id="zalo" name="zalo" ng-model="bacSi.zalo" ng-change="changeTitle()">
+                                        <label for="zalo">Zalo *</label>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

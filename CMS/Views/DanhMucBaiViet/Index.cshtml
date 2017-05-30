@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CMS.Models.Post>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="frontApp">
+    <div class="container">
+        <div class="row">
+            <div class="category-menu-1">
+                <div class="col-md-3">
+                    @Html.Partial("_MenuCategoryPost")
+                </div>
+            </div>
+            <div class="col-md-9 right panel panel-info" style="background-color:#ffffff">
+                <div class="panel" style="text-align:center; border-bottom-color:#0A921A">
+                    <h3 style="color:#137CFE; font-size:40px;">Danh mục con</h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-controller="childCategoryPostController">
+                        @*<input type="hidden" value="@Model.idCategory" id="idCategory" />*@
+                        <div class="container-fluid">
+                            @*<div class="col-md-6" ng-repeat="(index, value) in categories">*@
+                            <div class="col-md-6" dir-paginate="(index, value) in posts | itemsPerPage:12">
+                                <div class="child-post">
+                                    <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="title-child-post"><img src="{{value.image}}" class="img-responsive" /></a>
+                                    <div class="text">
+                                        <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">{{value.title}}</a> <br />
+                                        <div class="description">{{value.description | limitTo: 100}}{{value.description.length > 100 ? '&hellip;' : ''}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container"><dir-pagination-controls></dir-pagination-controls></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

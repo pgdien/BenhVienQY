@@ -1,0 +1,43 @@
+﻿@model CMS.Models.CategoryProduct
+@{
+    ViewBag.Title = ViewBag.title;
+}
+
+<!--Danh mục từng dạng sản phẩm cùng loại. Trang con của trang sản phẩm lớn-->
+<section class="tungloaisanpham col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="categoryProductController">
+    <input type="hidden" value="@Model.idCategory" id="idCategoryProduct" />
+    <!--Banner-->
+    <div class="banner hidden-xs col-sm-12 col-md-12 col-lg-12">
+        <p class="col-sm-5 col-md-5 col-lg-5">
+            <span>Rèm vải cao cấp</span><br />
+            Sản phẩm của chúng tôi được sản xuất và nhập khẩu theo đúng tiêu chuẩn châu Âu, chất lượng tuyệt hảo. Tạo nên không gian thi vị cho căn nhà của bạn.
+        </p>
+    </div>
+
+    <!--Danh sách sản phẩm-->
+    <article class="danhmuc col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-hide="products.length > 0">
+            Chưa có sản phẩm
+        </p>
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="products.length > 0">
+            Danh mục sản phẩm
+        </p>
+        <div class="cacsanpham col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <span us-spinner="{radius:15, width:4, length: 8}"></span>
+            <!--Từng sản phẩm-->
+            <div class="sanpham col-xs-12 col-sm-4 col-md-4 col-lg-4" dir-paginate="(index, value) in products | itemsPerPage:6">
+                <a href="/san-pham/{{value.alias}}-{{value.idProduct}}">
+                    <img ng-src="{{value.image}}" alt="{{value.title}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" />
+                    <div class="info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            {{value.title}}
+                        </p>
+                        <p class="detail col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-bind-html="value.description|limitTo:300">
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center"><dir-pagination-controls></dir-pagination-controls></div>
+        </div>
+    </article>
+</section>

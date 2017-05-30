@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="myApp">
+    <div ng-controller="themProductController">
+        <input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="saveProduct()"><span class="fa fa-edit"></span> Lưu</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="saveProductAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="saveProductAndNew()"><span class="fa fa-plus"></span> Lưu & Thêm mới</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="cancel()"><span class="fa fa-remove"></span> Hủy bỏ</button>
+            </div>
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <form class="form" role="form">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group  " ng-class="{'has-error':!product.title, 'has-success':product.title}">
+                                <input type="text" class="form-control" id="title" name="title" ng-model="product.title" ng-change="changeTitle()">
+                                <label for="title">Tiêu đề *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="alias" ng-model="product.alias" name="alias" readonly>
+                                <label for="alias">Alias</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="card-head">
+                        <ul class="nav nav-tabs" data-toggle="tabs">
+                            <li class="active"><a href="#noidung">Nội dung</a></li>
+                            <li class=""><a href="#xuatban">Xuất bản</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body tab-content">
+                        <!--Nội dung-->
+                        <div class="tab-pane active" id="noidung">
+                            <div class="col-md-9">
+                                
+                                Mô tả sản phẩm
+                                <textarea id="ckeditor" data-ck-editor class="form-control control-12-rows" ng-model="product.content" name="content"></textarea>
+                                <br />
+                                Thông số sản phẩm
+                                <textarea id="ckeditor" data-ck-editor class="form-control control-12-rows" ng-model="product.description" name="description"></textarea>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <form class="form" role="form">
+                                    <div class="form-group ">
+                                        <select id="category" name="category"
+                                                ng-model="category"
+                                                ng-options="category.name for category in categories track by category.id"
+                                                class="form-control"></select>
+                                        <label for="category">Danh mục</label>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <select id="status" name="published" class="form-control" ng-model="product.published">
+                                            <option value="1" ng-selected="product.published == 1">Xuất bản</option>
+                                            <option value="0" ng-selected="product.published == 0">Không xuất bản</option>
+                                        </select>
+                                        <label for="status">Trạng thái</label>
+                                    </div>
+                                    <div class="form-group ">
+                                        <select id="feature" name="feature" class="form-control" ng-model="product.feature">
+                                            <option value="1" ng-selected="product.feature == '1'">Có</option>
+                                            <option value="0" ng-selected="product.feature == '0'">Không</option>
+                                        </select>
+                                        <label for="feature">Nổi bật</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="image" id="image" ng-model="product.image" class="form-control" /> <button class="btn btn-primary" ng-click="chooseImage()">Chọn ảnh</button>
+                                        <label for="image">Hình ảnh (408 x266)</label>
+                                        <img class="img-responsive" ng-src="{{product.image}}" ng-show="product.image" />
+                                    </div>
+                                    <div class="form-group ">
+                                        <textarea name="note" id="note" class="form-control" rows="3" placeholder="" ng-model="product.note"></textarea>
+                                        <label for="note">Mô tả</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="tags" name="tags" ng-model="product.tags" />
+                                        <label for="tags">Tags</label>
+                                    </div>
+
+
+                                </form>
+                            </div>
+
+                        </div>
+                        <!--Xuất bản-->
+                        <div class="tab-pane" id="xuatban">
+                            <form class="form" role="form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user fa-lg"></span></span>
+                                            <div class="input-group-content">
+                                                <input type="text" class="form-control" id="idUserCreated" ng-model="product.idUserCreated" name="idUserCreated" readonly>
+                                                <label for="idUserCreated">Người tạo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar fa-lg"></span></span>
+                                            <div class="input-group-content">
+                                                <input type="text" class="form-control" id="timeCreated" ng-model="product.timeCreated | date:'HH:mm:ss dd-MM-yyyy'" name="timeCreated" readonly>
+                                                <label for="timeCreated">Ngày tạo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user fa-lg"></span></span>
+                                            <div class="input-group-content">
+                                                <input type="text" class="form-control" id="idUserModified" ng-model="product.idUserModified" name="idUserModified" readonly>
+                                                <label for="idUserModified">Người sửa</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar fa-lg"></span></span>
+                                            <div class="input-group-content">
+                                                <input type="text" class="form-control" id="timeModified" ng-model="product.timeModified | date:'HH:mm:ss dd-MM-yyyy'" name="timeModified" readonly>
+                                                <label for="timeModified">Ngày sửa</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <textarea name="metadescription" id="metadescription" class="form-control" rows="3" placeholder="" ng-model="product.metadescription"></textarea>
+                                        <label for="metadescription">Thẻ mô tả</label>
+                                    </div>
+                                    <div class="form-group ">
+                                        <textarea name="metakewords" id="metakewords" class="form-control" rows="3" placeholder="" ng-model="product.metakewords"></textarea>
+                                        <label for="metakewords">Thẻ từ khóa</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" value="" id="author" class="form-control" name="author" ng-model="product.author" />
+                                        <label for="author">Tác giả</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="robots" name="robots" class="form-control" ng-model="product.robots">
+                                            <option value="Index, Follow" ng-selected="product.robots == 'Index, Follow'">Index, Follow</option>
+                                            <option value="No index, Follow" ng-selected="product.robots == 'No index, Follow'">No index, Follow</option>
+                                            <option value="Index, No follow" ng-selected="product.robots == 'Index, No follow'">Index, No follow</option>
+                                            <option value="No index, No follow" ng-selected="product.robots == 'No index, No follow'">No index, No follow</option>
+                                        </select>
+                                        <label for="robots">Robots</label>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+

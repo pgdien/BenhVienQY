@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="footer" ng-controller="ContactController">
+    <div class="container">
+        <h6>LIÊN HỆ</h6>
+        <div class="co-ntact">
+            <div class="contact-top contact-top-right">
+                <div class="showText">
+                </div>
+                <div class="contact">
+                    <form class="formBox">
+                        <ul class="left">
+                            <li class="name">
+                                <input name="tendaydu" type="text" placeholder="Họ tên (Bắt buộc)" value="" ng-model="Contact.hoten"/>
+                            </li>
+                            <li class="phone">
+                                <input name="dienthoai" type="text" placeholder="Điện thoại (bắt buộc)" value="" ng-model="Contact.sdt"/>
+                            </li>
+                            <li class="mail">
+                                <input name="email" type="email" placeholder="Email" value="" ng-model="Contact.email"/>
+                            </li>
+                            <li class="local">
+                                <input name="diachi" type="text" placeholder="Địa chỉ" value="" ng-model="Contact.diachi"/>
+                            </li>
+                        </ul>
+                        <ul class="right">
+                            <li class="code">
+                                <div class="left"><input name="mabaove" class="haimabaove" type="text" placeholder="Nội dung" value="" ng-model="Contact.title"></div>
+                            </li>
+                            <li class="mess">
+                                <textarea name="noidung" cols="0" rows="3" placeholder="Nội dung" value="" ng-model="Contact.content"></textarea>
+                            </li>
+                            <div class="haibuttom">
+                                <a ng-click="Reset()" style="cursor:pointer" class="button submitbutton">Nhập lại</a>
+                                <a ng-click="SaveContact()" style="cursor:pointer" class="button submitbutton">Gửi đi</a>
+                            </div>
+                        </ul>
+                        <div class="clr"></div>
+                    </form>
+                </div>
+
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.3120690551377!2d106.82891829919923!3d20.9399792912038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a6168c15ee887%3A0xf41be68a01edb90!2zQuG7h25oIHZp4buHbiDEkWEga2hvYSBUaOG7iyB4w6MgUXXhuqNuZyBZw6pu!5e0!3m2!1svi!2s!4v1491335743286" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p><span class="footer_copyright"><a target="_blank" href="https://www.facebook.com/KetnoitreJsc" alt="Thiết Kế Website" title="Thiết Kế Website" class="a_copyright">Thiết kế bởi Kết Nối Trẻ</a></span></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@*<section class="about-us tutorial col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1em;">
+        <p style="font-size: 3em; color: #313a45; text-align: center; padding: 1em 0;">Liên hệ với chúng tôi</p>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 lienHe" ng-controller="ContactController">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 thongTin" style="margin-bottom:1em;">
+                <div class="form-group" ng-class="{'has-error':!Contact.hoten, 'has-success':Contact.hoten}">
+                    <input type="text" class="form-control" id="name" placeholder="Họ tên (bắt buộc)" ng-model="Contact.hoten">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ" ng-model="Contact.diachi">
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-xs-12" ng-class="{'has-error':!Contact.sdt, 'has-success':Contact.sdt}" style="padding-left:0;">
+                    <input type="text" class="form-control" id="sdt" placeholder="Số điện thoại (bắt buộc)" >
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-xs-12" style="padding-right:0;">
+                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="Contact.email">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="tieude" placeholder="Tiêu đề liên hệ" ng-model="Contact.title">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="10" id="noidung" placeholder="Nội dung liên hệ" ng-model="Contact.content"></textarea>
+                </div>
+                <button type="button" class="btn btn-info" ng-click="SaveContact()" style="padding: 0.5em 2em; float: right;">Gửi</button>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3731.6775609893257!2d107.04835121443092!3d20.723314086164667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a443466ed9289%3A0xe0c05a258bce227f!2zS2jDoWNoIHPhuqFuIEjhuqNpIExvbmcgQ8OhdCBCw6A!5e0!3m2!1svi!2s!4v1487824517220" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </section>*@

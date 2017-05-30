@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách loại phòng nghỉ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Trang phòng nghỉ-->
+<section class="phongnghi col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="categoryPostController">
+    <input type="hidden" value="2" id="idCategory" />
+    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+    <!--Banner-->
+    <div class="banner hidden-xs col-sm-12 col-md-12 col-lg-12">
+        <img src="~/Content/Front/images/phongnghi/banner.png" alt="" />
+
+        <!--Text-->
+        <div class="text col-sm-12 col-md-12 col-lg-12">
+            <p class="line-1">Phòng Nghỉ</p>
+            <p class="line-2">Chúng tôi cung cấp những căn phòng tốt nhất đến cho khách hàng</p>
+        </div>
+    </div>
+
+    <!--Các loại phòng-->
+    <article class="cacloaiphong col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p ng-hide="posts.length > 0" style="text-align:center; font-size:2em; color:#0c7b07">Chưa có bài viết nào</p>
+        <!--Loại phòng-->
+        <div class="loaiphong col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-repeat="(index, value) in posts" ng-show="posts.length > 0">
+
+            <!--Tên loại phòng-->
+            <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{value.title}}</p>
+
+            <!--Thông tin-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <!--Ảnh phòng-->
+                <img ng-src="{{value.image}}" alt="{{value.title}}" class="col-xs-12 col-sm-4 col-md-6 col-lg-6" />
+
+                <!--Chi tiết-->
+                <div class="chitiet col-xs-12 col-sm-8 col-md-6 col-lg-6">
+                    <div ng-bind-html="value.content | limitTo:600"></div>
+                    <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="xemthem">Xem chi tiết <i class="fa fa-angle-double-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </article>
+</section>

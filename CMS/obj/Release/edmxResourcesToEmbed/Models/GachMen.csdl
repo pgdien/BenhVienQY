@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GachMenLongKhanhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GachMenLongKhanhEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Banner" EntityType="GachMenLongKhanhModel.Banner" />
+    <EntitySet Name="Category" EntityType="GachMenLongKhanhModel.Category" />
+    <EntitySet Name="CategoryProduct" EntityType="GachMenLongKhanhModel.CategoryProduct" />
+    <EntitySet Name="Contact" EntityType="GachMenLongKhanhModel.Contact" />
+    <EntitySet Name="Image" EntityType="GachMenLongKhanhModel.Image" />
+    <EntitySet Name="Order" EntityType="GachMenLongKhanhModel.Order" />
+    <EntitySet Name="Post" EntityType="GachMenLongKhanhModel.Post" />
+    <EntitySet Name="Product" EntityType="GachMenLongKhanhModel.Product" />
+    <EntitySet Name="User" EntityType="GachMenLongKhanhModel.User" />
+    <EntitySet Name="Video" EntityType="GachMenLongKhanhModel.Video" />
+    <EntitySet Name="webpages_Membership" EntityType="GachMenLongKhanhModel.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="GachMenLongKhanhModel.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="GachMenLongKhanhModel.webpages_Roles" />
+    <AssociationSet Name="FK_Category_Category" Association="GachMenLongKhanhModel.FK_Category_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Category1" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryProduct_CategoryProduct" Association="GachMenLongKhanhModel.FK_CategoryProduct_CategoryProduct">
+      <End Role="CategoryProduct" EntitySet="CategoryProduct" />
+      <End Role="CategoryProduct1" EntitySet="CategoryProduct" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="GachMenLongKhanhModel.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="text_link" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="idCategory" />
+    </Key>
+    <Property Name="idCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCategoryParent" Type="Int32" />
+    <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="timeCreated" Type="DateTime" Precision="3" />
+    <Property Name="timeModified" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="published" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="Int32" />
+    <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Category1" Relationship="GachMenLongKhanhModel.FK_Category_Category" FromRole="Category" ToRole="Category1" />
+    <NavigationProperty Name="Category2" Relationship="GachMenLongKhanhModel.FK_Category_Category" FromRole="Category1" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="CategoryProduct">
+    <Key>
+      <PropertyRef Name="idCategory" />
+    </Key>
+    <Property Name="idCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCategoryParent" Type="Int32" />
+    <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="timeCreated" Type="DateTime" Precision="3" />
+    <Property Name="timeModified" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="published" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="Int32" />
+    <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image_banner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CategoryProduct1" Relationship="GachMenLongKhanhModel.FK_CategoryProduct_CategoryProduct" FromRole="CategoryProduct" ToRole="CategoryProduct1" />
+    <NavigationProperty Name="CategoryProduct2" Relationship="GachMenLongKhanhModel.FK_CategoryProduct_CategoryProduct" FromRole="CategoryProduct1" ToRole="CategoryProduct" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="idContact" />
+    </Key>
+    <Property Name="idContact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hoten" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCategoryProduct" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="sanPham" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="soLuong" Type="Int32" />
+    <Property Name="idProduct" Type="Int32" />
+    <Property Name="checked" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="idPost" />
+    </Key>
+    <Property Name="idPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCategory" Type="Int32" Nullable="false" />
+    <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="timeCreated" Type="DateTime" Precision="3" />
+    <Property Name="timeModified" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="published" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="Int32" />
+    <Property Name="featured" Type="Int32" />
+    <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="idProduct" />
+    </Key>
+    <Property Name="idProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCategoryProduct" Type="Int32" />
+    <Property Name="idUserCreated" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idUserModified" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="timeCreated" Type="DateTime" Precision="3" />
+    <Property Name="timeModified" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Double" />
+    <Property Name="KichThuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChatLieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="published" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="Int32" />
+    <Property Name="feature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="metadescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="metakewords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="robots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="webpages_Roles" Relationship="GachMenLongKhanhModel.webpages_UsersInRoles" FromRole="User" ToRole="webpages_Roles" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="link_video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="link_post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="GachMenLongKhanhModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Category_Category">
+    <End Type="GachMenLongKhanhModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="GachMenLongKhanhModel.Category" Role="Category1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="idCategory" />
+      </Principal>
+      <Dependent Role="Category1">
+        <PropertyRef Name="idCategoryParent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryProduct_CategoryProduct">
+    <End Type="GachMenLongKhanhModel.CategoryProduct" Role="CategoryProduct" Multiplicity="0..1" />
+    <End Type="GachMenLongKhanhModel.CategoryProduct" Role="CategoryProduct1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryProduct">
+        <PropertyRef Name="idCategory" />
+      </Principal>
+      <Dependent Role="CategoryProduct1">
+        <PropertyRef Name="idCategoryParent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Type="GachMenLongKhanhModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+    <End Type="GachMenLongKhanhModel.User" Role="User" Multiplicity="*" />
+  </Association>
+</Schema>

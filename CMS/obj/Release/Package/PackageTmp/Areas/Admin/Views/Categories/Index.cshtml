@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CMS.Models.Category>
+
+@{
+    ViewBag.Title = "Danh sách danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="myApp">
+    <div ng-controller="danhsachCategoryController">
+        <p>
+            <a href="@Url.Action("Create", "Categories")" class="btn ink-reaction btn-raised btn-primary"><span class="fa fa-plus"></span> Thêm</a>
+        </p>
+
+        <div class="card">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-move-columns ui-grid="gridOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CMS.Models.Post>
+
+@{
+    ViewBag.Title = "Danh sách Bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="myApp">
+    <div ng-controller="danhsachPostController">
+        <p>
+            <a href="@Url.Action("Create", "Posts")" class="btn ink-reaction btn-raised btn-primary"><span class="fa fa-plus"></span> Thêm</a>
+        </p>
+
+        <div class="card">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-move-columns ui-grid="gridOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

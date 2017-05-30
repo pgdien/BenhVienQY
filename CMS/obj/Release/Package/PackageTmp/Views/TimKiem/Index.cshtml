@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<p class="title" ng-controller="showSearchController" ng-show="!(searchText.length > 0)"><i>Xin lỗi! Kết quả tìm kiếm không tồn tại</i></p>
+
+<section class="tungloaisanpham tutorial col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="categoryProductController">
+    <article class="danhmuc col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="showSearchController">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-hide="products.length > 0" style="width: 100%; left: 0;">
+            Không có sản phầm nào phù hợp
+        </p>
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="products.length > 0" style="width: 100%; left: 0;">
+            Có {{products.length}} sản phẩm
+        </p>
+        <div class="cacsanpham col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <!--Rèm vải-->
+            <div class="sanpham col-xs-12 col-sm-4 col-md-4 col-lg-4" ng-repeat="(index, value) in products">
+                <a href="/danh-muc-san-pham/{{value.alias}}-{{value.idCategory}}">
+                    <img ng-src="{{value.image}}" alt="{{value.title}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" />
+                    <div class="info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p class="title rv col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            {{value.title}}
+                        </p>
+                        <p class="detail col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-bind-html="value.description">
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+    </article>
+    <article class="danhsachbaiviet col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="showSearchController">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-hide="posts.length > 0" style="font-size: 2em; color: rgb(12, 123, 7); text-transform: uppercase; text-align: center; padding: 0.2em 0; margin: 1.5em 0 1em 0; border-top: solid 2px rgb(12, 123, 7); border-bottom: solid 2px rgb(12, 123, 7); width: 100%; left: 0;">
+            Không có bài viết nào phù hợp
+        </p>
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="posts.length > 0" style="font-size: 2em; color: rgb(12, 123, 7); text-transform: uppercase; text-align: center; padding: 0.2em 0; margin: 1.5em 0 1em 0; border-top: solid 2px rgb(12, 123, 7); border-bottom: solid 2px rgb(12, 123, 7); width: 100%; left: 0;">
+            Có {{posts.length}} bài viết
+        </p>
+        <div class="baiviet col-xs-6 col-sm-6 col-md-6 col-lg-6" ng-repeat="(index, value) in posts">
+            <img ng-src="{{value.image}}" alt="{{value.title}}" class="col-xs-12 col-sm-3 col-md-3 col-lg-3" />
+            <div class="info col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{value.title}}</a>
+                <p class="detail col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {{value.description}}<a href="/bai-viet/{{value.alias}}-{{value.idPost}}">Xem tiếp</a>
+                </p>
+            </div>
+        </div>
+    </article>
+</section>

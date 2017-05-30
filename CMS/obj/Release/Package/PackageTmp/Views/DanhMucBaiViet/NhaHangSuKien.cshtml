@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách nhà hàng và sự kiện";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="nhahangsukien col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="categoryPostController">
+    <input type="hidden" value="3" id="idCategory" />
+    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+    <!--Tiêu đè-->
+    <p class="tieude">Nhà hàng & sự kiện</p>
+
+    <!--Danh sách tin tức-->
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p ng-hide="posts.length > 0" style="text-align:center; font-size:2em; color:#0c7b07">Chưa có bài viết nào</p>
+        <!--Từng tin-->
+        <div class="tintuc col-xs-12 col-sm-12 col-md-12 col-lg-12" dir-paginate="(index, value) in posts | itemsPerPage:4" ng-show="posts.length > 0">
+
+            <!--Link ở ảnh, tiêu đề, nút xem tiếp giống nhau-->
+            <!--Ảnh bài viết-->
+            <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <img ng-src="{{value.image}}" alt="{{value.title}}" />
+            </a>
+
+            <!--Thông tin bài viết-->
+            <div class="thongtin col-xs-12 col-sm-12 col-md-7 col-lg-7">
+
+                <!--Tiêu đề-->
+                <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="tieude">{{value.title}}</a>
+
+                <!--Tóm tắt-->
+                <p class="tomtat col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-bind-html="value.content | limitTo:200"></p>
+
+                <!--Xem thêm-->
+                <div class="xemthem col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">Xem tiếp</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Số trang-->
+        <div class="container">
+            <dir-pagination-controls></dir-pagination-controls>
+        </div>
+    </article>
+</section>

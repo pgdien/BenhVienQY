@@ -1,0 +1,237 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content pad1" style="padding:0" ng-controller="homeController">
+    <div class="midle_main_idclass fix1200_cus1">
+
+
+        <div class="about" id="about">
+            <div class="container">
+                <h6>Trung tâm y tế Quảng Yên</h6>
+                <div class="about-left">
+                    <p>Trung tâm có đội ngũ y bác sỹ nam khoa, bác sĩ bệnh trĩ hậu môn, bác sĩ bệnh xã hội với gần 20 năm kinh nghiệm, từng công tác làm việc tại các bệnh viện trung ương, tham gia khóa tu nghiệp ngắn và dài hạn, có đội ngũ bác sĩ, chuyên gia y tế từ Hàn Quốc để tư vấn và hướng dẫn.</p>
+                    <p>Nhận thấy y khoa là lĩnh lực có sự thay đổi không ngừng cho nên những năm qua chúng tôi luôn cử cán bộ, bác sĩ tham gia các lớp tập huấn, đào tạo ngắn hạn, hơn nữa luôn tiếp nhận, chuyển giao các kỹ thuật hỗ trợ chữa bệnh hiện nay, nhằm đạt kết quả hỗ trợ chữa trị tốt nhất, tiết kiệm tiền bạc cho người bệnh.</p>
+                    <p>Hơn nữa với tiêu chí xem bệnh nhân như người nhà, luôn lắng nghe tâm tư nguyện vọng của từng bệnh nhân, giải đáp những hoài nghi thắc mắc của người bệnh để khiến người bệnh thoải mái tâm lý, yên tâm hỗ trợ điều trị luôn là mục tiêu của đội ngũ y bác sĩ của chúng tôi.</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        @*<svg id="stamp" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 0 Q 2.5 40 5 0
+                 Q 7.5 40 10 0
+                 Q 12.5 40 15 0
+                 Q 17.5 40 20 0
+                 Q 22.5 40 25 0
+                 Q 27.5 40 30 0
+                 Q 32.5 40 35 0
+                 Q 37.5 40 40 0
+                 Q 42.5 40 45 0
+                 Q 47.5 40 50 0
+                 Q 52.5 40 55 0
+                 Q 57.5 40 60 0
+                 Q 62.5 40 65 0
+                 Q 67.5 40 70 0
+                 Q 72.5 40 75 0
+                 Q 77.5 40 80 0
+                 Q 82.5 40 85 0
+                 Q 87.5 40 90 0
+                 Q 92.5 40 95 0
+                 Q 97.5 40 100 0 Z">
+                </path>
+            </svg>*@
+        <div class="services" id="services">
+            <div class="container">
+                <h6>DỊCH VỤ</h6>
+                <p ng-hide="dichVus.length > 0" style="text-align:center; font-size:2em; color:#f44336">Đang cập nhật</p>
+                <div class="row" ng-show="dichVus.length > 0">
+                    <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 " ng-repeat="(index, value) in dichVus" ng-class="{'hidden-sm': index == 3}">
+                        <div class="services-left">
+                            <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">
+                                <img ng-src="{{value.image}}" alt="{{value.title}}">
+                            </a>
+
+                            <h3><a href="/bai-viet/{{value.alias}}-{{value.idPost}}">{{value.title}}</a></h3>
+                            <p>{{value.description}}</p>
+                            <a href="/bai-viet/{{value.alias}}-{{value.idPost}}" class="hvr-shutter-in-horizontal btn_xemchitiet">Xem ngay</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="fright-sanpham">
+                        <a class="hvr-shutter-in-horizontal btn_xemchitiet" href="/danh-muc-bai-viet/dich-vu-2">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="insurance" id="tin-tuc" style="padding-bottom:0;">
+            <div class="container">
+                <h6><a href="/danh-muc-bai-viet/tin-tuc-3">Tin tức</a></h6>
+                <div class="main">
+                    <p ng-hide="tinTucs.length > 0" style="text-align:center; font-size:2em; color:#f44336">Đang cập nhật</p>
+                    <div class="row" ng-show="tinTucs.length > 0">
+                        <div class="col-md-6 col-sm-6  content-bottom-top" ng-repeat="(index, value) in tinTucs">
+                            <div class="dv-tintuc">
+                                <div class="dv-tinleft">
+                                    <a href="/bai-viet/{{value.alias}}-{{value.idPost}}"><img class="img-responsive" ng-src="{{value.image}}" alt="{{value.title}}"></a>
+                                </div>
+                                <div class="dv-tinright">
+                                    <div class="tit"><a href="/bai-viet/{{value.alias}}-{{value.idPost}}">{{value.title}}</a></div>
+                                    <p>{{value.description}}</p>
+                                    <div class="xemthem-r">
+                                        <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">» Xem ngay</a>
+                                    </div>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="fright-tintuc" style="margin-bottom:1em;">
+                            <a class="hvr-shutter-in-horizontal btn_xemchitiet" href="/danh-muc-bai-viet/tin-tuc-3">Xem thêm</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            @*<svg id="stamp" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                         <path d="M0 0 Q 2.5 40 5 0
+                Q 7.5 40 10 0
+                Q 12.5 40 15 0
+                Q 17.5 40 20 0
+                Q 22.5 40 25 0
+                Q 27.5 40 30 0
+                Q 32.5 40 35 0
+                Q 37.5 40 40 0
+                Q 42.5 40 45 0
+                Q 47.5 40 50 0
+                Q 52.5 40 55 0
+                Q 57.5 40 60 0
+                Q 62.5 40 65 0
+                Q 67.5 40 70 0
+                Q 72.5 40 75 0
+                Q 77.5 40 80 0
+                Q 82.5 40 85 0
+                Q 87.5 40 90 0
+                Q 92.5 40 95 0
+                Q 97.5 40 100 0 Z">
+                         </path>
+                     </svg>*@
+            <div class="gallery visible-md visible-lg" id="gallery">
+                <div class="container" style="padding:0;">
+                    <div class="gallery-top heading">
+                        <h6>Thư Viện Ảnh</h6>
+                    </div>
+                    <div class="gallery-bottom">
+                        <div class="grid">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 col-xs-6 col-min-12 g-left" style="padding:0;">
+                                    <a href="/bo-suu-tap/{{value.alias}}-{{value.id}}" @*class="lightbox"*@ title="{{value.title}}">
+                                        <figure class="effect-apollo">
+                                            <img src="~/Content/Images/images/DichVu/14895625772342_2.jpg" alt="{{value.title}}" class="img-responsive">
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6 col-xs-6 col-min-12 g-left" style="padding:0;">
+                                    <a href="/bo-suu-tap/{{value.alias}}-{{value.id}}" @*class="lightbox"*@ title="{{value.title}}">
+                                        <figure class="effect-apollo">
+                                            <img src="~/Content/Images/images/DichVu/14895625772342_2.jpg" alt="{{value.title}}" class="img-responsive">
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6 col-xs-6 col-min-12 g-left" style="padding:0;">
+                                    <a href="/bo-suu-tap/{{value.alias}}-{{value.id}}" @*class="lightbox"*@ title="{{value.title}}">
+                                        <figure class="effect-apollo">
+                                            <img src="~/Content/Images/images/DichVu/14895625772342_2.jpg" alt="{{value.title}}" class="img-responsive">
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6 col-xs-6 col-min-12 g-left" style="padding:0;">
+                                    <a href="/bo-suu-tap/{{value.alias}}-{{value.id}}" @*class="lightbox"*@ title="{{value.title}}">
+                                        <figure class="effect-apollo">
+                                            <img src="~/Content/Images/images/DichVu/14895625772342_2.jpg" alt="{{value.title}}" class="img-responsive">
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="fright-sanpham" ng-show="images.length > 0">
+                                <a class="hvr-shutter-in-horizontal btn_xemchitiet" href="/bo-suu-tap">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ourteam" id="ourteam">
+                <div class="container">
+                    <h6>Đội Ngũ Bác Sĩ</h6>
+                    <p ng-hide="bacSis.length > 0" style="text-align:center; font-size:2em; color:#f44336">Đang cập nhật</p>
+                    <ul class="ch-grid" ng-show="bacSis.length > 0">
+
+                        <li ng-repeat="(index, value) in bacSis">
+                            <a href="/bac-si/{{value.id}}" class="lightbox"></a><div class="ch-item " style="background-image: url(&quot;{{value.anh}}&quot;);">
+                                <a href="/bac-si/{{value.id}}" class="lightbox"></a>
+                                <div class="ch-info">
+                                    <a href="/bac-si/{{value.id}}" class="lightbox"></a>
+                                    <div class="soci">
+                                        <a href="/bac-si/{{value.id}}" class="lightbox"></a>
+                                        <h5>
+                                            <a href="mailto:{{value.email}}" style="font-size:1.5em;" title="gửi mail" target="_blank"><i class="fa fa-envelope-o"></i></a>
+                                            <a href="{{value.fb}}" style="font-size:1.5em;" title="liên hệ facebook" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                            <a href="{{value.zalo}}" style="font-size:1.5em;" title="Liên hệ zalo" target="_blank"><i class="fa fa-telegram"></i></a>
+                                            <a href="/bac-si/{{value.id}}" style="font-size:1.5em;" title="Xem thông tin"><i class="fa fa-hand-o-right"></i></a>
+                                        </h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                    <div class="fright-tintuc" ng-show="bacSis.length > 0">
+                        <a class="hvr-shutter-in-horizontal btn_xemchitiet" href="/bac-si">Xem thêm</a>
+                    </div>
+                    @*<div class="social">
+                            <h3>Follow Us</h3>
+                            <ul>
+                                <li><a href="https://www.facebook.com/KetnoitreJsc/?fref=ts" target="_blank"><i class="fa fa-facebok"> </i></a></li>
+                                <li><a href="" target="_blank"><i class="twiter"> </i></a></li>
+                                <li><a href="" target="_blank"><i class="goog"> </i></a></li>
+                                <li><a href="" target="_blank"><i class="inst"> </i></a></li>
+                                <li><a href="" target="_blank"><i class="te"> </i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>*@
+                </div>
+            </div>
+            @*<svg id="stamp" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                         <path d="M0 0 Q 2.5 40 5 0
+                Q 7.5 40 10 0
+                Q 12.5 40 15 0
+                Q 17.5 40 20 0
+                Q 22.5 40 25 0
+                Q 27.5 40 30 0
+                Q 32.5 40 35 0
+                Q 37.5 40 40 0
+                Q 42.5 40 45 0
+                Q 47.5 40 50 0
+                Q 52.5 40 55 0
+                Q 57.5 40 60 0
+                Q 62.5 40 65 0
+                Q 67.5 40 70 0
+                Q 72.5 40 75 0
+                Q 77.5 40 80 0
+                Q 82.5 40 85 0
+                Q 87.5 40 90 0
+                Q 92.5 40 95 0
+                Q 97.5 40 100 0 Z">
+                         </path>
+                     </svg>*@
+
+        </div>
+    </div>
+</section>

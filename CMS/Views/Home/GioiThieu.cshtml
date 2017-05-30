@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Giới thiệu";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<section class="about-us col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <!--Giới thiệu về công ty-->
+    <article class="gioithieu col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <img src="~/Content/Front/images/gioithieu/banner.png" alt="" class="col-xs-12 col-sm-6 col-md-7 col-lg-7" />
+        <div class="info col-xs-12 col-sm-6 col-md-5 col-lg-5">
+            <p class="co-name col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                công ty TNHH SX thương mại và dịch vụ hùng tuyết
+            </p>
+            <p class="co-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span class="first">Đại diện: </span>(Bà) Nguyễn Thị Tuyết<br />
+                <span class="first">Chức vụ: </span>Chủ doanh nghiệp<br />
+                <span class="first">Địa chỉ: </span>43N Lê Lai, Ngô Quyền, Hải Phòng.<br />
+                <span class="first">Điện thoại: </span>0313.654.097 - 0904.482.018<br />
+                <span class="first">Email: </span>hungtuyet1970@gmail.com<br />
+                <span class="first">Ngành nghề kinh doanh: </span><br /><span class="nganhnghe">CHĂN GA - MÀNH RÈM - GỐI ĐỆM</span>
+            </p>
+        </div>
+    </article>
+
+    <!--Danh mục sản phẩm & Bài viết nổi bật & có thể bạn quan tâm-->
+    <aside class="hidden-xs hidden-sm col-md-3 col-lg-3">
+
+        <!--Danh mục-->
+        <div class="danhmuc col-md-12 col-lg-12" ng-controller="categoryProductController">
+            <ul>
+                <li class="tieude">Danh mục sản phẩm</li>
+                <li><a href="/danh-muc-san-pham/{{value.alias}}-{{value.idCategory}}" ng-repeat="(index, value) in categoryProducts">{{value.title}}</a></li>
+            </ul>
+        </div>
+
+        <!--Bài viết nổi bật-->
+        <div class="noibat col-md-12 col-lg-12" ng-controller="categoryPostController">
+            <p class="tieude col-md-12 col-lg-12">Bài viết nổi bật</p>
+            <div class="cacbaiviet col-md-12 col-lg-12">
+                <div class="tungbaiviet col-md-12 col-lg-12" dir-paginate="(index, value) in baiVietTops | itemsPerPage:4">
+                    <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">
+                        <img ng-src="{{value.image}}" alt="{{value.title}}" class="col-md-12 col-lg-12" />
+                        <p class="col-md-12 col-lg-12">{{value.title}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--Có thể bạn quan tâm-->
+        <div class="quantam col-sm-12 col-md-12 col-lg-12" ng-controller="categoryPostController">
+            <p class="tieude col-sm-12 col-md-12 col-lg-12">Có thể bạn quan tâm</p>
+            <div class="cacbaiviet col-sm-12 col-md-12 col-lg-12">
+                <div class="tungbaiviet col-sm-12 col-md-12 col-lg-12" dir-paginate="(index, value) in congTrinhNoiBats | itemsPerPage:4">
+                    <a href="/bai-viet/{{value.alias}}-{{value.idPost}}">
+                        <img ng-src="{{value.image}}" alt="{{value.title}}" class="col-md-12 col-lg-12" />
+                        <p class="col-md-12 col-lg-12">{{value.title}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!--Bài viết chính-->
+    <article class="baiviet col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Qua nhiều năm, Tuyết Hùng là một trong những đơn vị Tư vấn - Thiết kế - Hoàn thiện Mành Rèm trên thị trường Hải Phòng.
+            Trong quá trình phát triển thương hiệu, Tuyết Hùng đã không ngừng vươn lên và ngày càng khẳng định được vị trí cũng như giá trị của mình bằng:
+            " Mẫu mã đa dạng - Chất liệu tinh tế - Màu sắc sang trọng, phong phú".
+        </p>
+        <img src="~/Content/Front/images/gioithieu/baiviet-1.png" alt="" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" />
+        <img src="~/Content/Front/images/gioithieu/baiviet-2.png" alt="" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" />
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Tuyết Hùng không ngừng đổi mới và phát triển với đội ngũ công nhân tay nghề cao luôn đáp ứng được những yêu cầu khắt khe về mẫu mã của Quý khách hàng.
+            Chuyên viên tư vấn luôn có tinh thần trách nhiệm cao tạo cho Qúy khách sự hài lòng, yên tâm nhất để trở thành chủ nhân của những căn phòng lịch sự, sang trọng và ấm áp.
+        </p>
+        <img src="~/Content/Front/images/gioithieu/baiviet-3.png" alt="" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" />
+        <img src="~/Content/Front/images/gioithieu/baiviet-4.png" alt="" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" />
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Quý khách có thể hoàn toàn đặt niềm tin khi giao phó công trình hay ngôi nhà yêu dấu của mình cho Tuyết Hùng đảm nhiệm.
+            Tuyết Hùng luôn lắng nghe và thấu hiểu những ý kiến đóng góp rất quý báu của Quý khách hàng, để nhằm đưa tới cho Quý khách hàng những sản phẩm tốt nhất.
+        </p>
+        <img src="~/Content/Front/images/gioithieu/baiviet-5.png" alt="" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" />
+        <p class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            Tuyết Hùng đã chính thức là nhà cung cấp cho khách hàng nhiều dòng sản phẩm đa dạng phong phú trên lĩnh vực
+            Chăn – Ga - Gối - Đệm Hàn Quốc mang thương hiệu Everon - Hanvico – Vicosan- Korea – Han san – Han Viet Hai.
+            Chăn Ga Gối Đệm Hanvico là thương hiệu đứng đầu Hàn Quốc, chiếm thị phần lớn nhất tại Việt Nam
+            và được bình chọn là sản phẩm chăm sóc sức khỏe cộng đồng tốt nhất, đươc yêu thích nhất trong nhiều năm vừa qua.
+        </p>
+        <p class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            Thương hiệu Everon là biểu tượng của sự đẳng cấp, sự sang trọng và quý phái,
+            cùng với các sản phẩm ruột bông cao cấp Hàn Quốc tuyệt đối an toàn, đáp ứng tối đa các nhu cầu đặc biệt cho giấc ngủ của bạn.
+            Đặc biêt hơn với thương hiệu Vicosan lần đầu tiên xuất hiện trên thị trường với giá cả cực hấp dẫn,
+            chất liệu tốt nhằm thỏa mãn mọi nhu cầu của Quý khách hàng.
+        </p>
+        <img src="~/Content/Front/images/gioithieu/baiviet-6.png" alt="" class="col-xs-12 col-sm-6 col-md-6 col-lg-6" />
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Trong tương lai, Tuyết Hùng luôn mong được đồng hành cùng những công trình mới mọc lên, góp công xây dựng một không gian sống lý tưởng,
+            chất lượng cao để phục vụ quý khách. Tuyết Hùng xin gửi lời cảm ơn sâu sắc tới các Quý khách hàng đã đồng hành cùng Tuyết Hùng trong suốt thời gian qua.
+        </p>
+        <p class="camon col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            Xin chân thành cảm ơn Quý khách!
+        </p>
+    </article>
+</section>

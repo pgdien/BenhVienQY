@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bệnh viện Quảng Yên - @ViewBag.Title</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <link href="~/Content/Front/images/logo.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="alternate" href="" hreflang="vi" />
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700,800' rel='stylesheet' type='text/css' />
+    <link href="~/Content/admin/css/theme-default/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/theme-default/materialadmin.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/theme-default/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/theme-default/material-design-iconic-font.min.css" rel="stylesheet" />
+
+    <!--UI-Grid-->
+    <link href="~/Content/ui-grid.min.css" rel="stylesheet" />
+    <!--Message-->
+    <link href="~/Content/admin/css/theme-default/libs/toastr/toastr.min.css" rel="stylesheet" />
+
+    <!--Table-->
+    <link href="~/Content/admin/css/theme-default/libs/DataTables/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/theme-default/libs/DataTables/TableTools.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/theme-default/libs/DataTables/extensions/dataTables.colVis.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <!--Site-->
+    <link href="~/Content/admin/css/Site.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS includes -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="~/Content/admin/js/libs/utils/html5shiv.js"></script>
+    <script type="text/javascript" src="~/Content/admin/js/libs/utils/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="menubar-hoverable header-fixed">
+    <!-- HEADER-->
+    <header id="header">
+        <div class="headerbar">
+            <!--Logo-->
+            <div class="headerbar-left">
+                <ul class="header-nav header-nav-options">
+                    <li class="header-nav-brand">
+                        <div class="brand-holder">
+                            <a href="/">
+                                <span class="text-lg text-bold text-primary">Bệnh viện Quảng Yên</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--HeaderBar-->
+            <div class="headerbar-right">
+                <ul class="header-nav header-nav-options">
+                    <!-- Search form -->
+                    <li>
+                        <form class="navbar-search" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="headerSearch" placeholder="Enter your keyword">
+                            </div>
+                            <button type="submit" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li>
+                </ul>
+                <!--Profile-->
+                <ul class="header-nav header-nav-profile">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                            <img src="~/Content/admin/img/Anonymous.png" />
+                            <span class="profile-info">
+                                <b>@WebSecurity.CurrentUserName</b><br />
+                                <span>@Roles.GetRolesForUser(WebSecurity.CurrentUserName)[0]</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animation-dock">
+                            <li><a href="@Url.Action("Logout", "Account", new { Area = "" })"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                        </ul><!--end .dropdown-menu -->
+                    </li><!--end .dropdown -->
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- BASE-->
+    <div id="base" class="menubar-hoverable">
+        <!-- OFFCANVAS LEFT -->
+        <div class="offcanvas">
+        </div>
+
+        <!-- CONTENT-->
+        <div id="content">
+            <!-- SECTION -->
+            <section>
+                <!--Header Section-->
+                <div class="section-header">
+                    <ol class="breadcrumb">
+                        <li class="active text-uppercase">@ViewBag.Title</li>
+                    </ol>
+                </div>
+
+                <!--Body-->
+                <div class="section-body">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+
+        <!-- MENUBAR-->
+        <div id="menubar" class="menubar-inverse animate">
+            <div class="menubar-fixed-panel">
+                <div>
+                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="expanded">
+                    <a href="@Url.Action("Index", "Dashboard", "Admin")">
+                        <span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+                    </a>
+                </div>
+            </div>
+            <div class="menubar-scroll-panel">
+
+                <!-- BEGIN MAIN MENU -->
+                <ul id="main-menu" class="gui-controls">
+
+                    <!-- BEGIN DASHBOARD -->
+                    @*<li>
+                            <a href="@Url.Action("Index", "Dashboard", new { Area = "Admin" })">
+                                <div class="gui-icon"><i class="md md-home"></i></div>
+                                <span class="title">Trang chủ</span>
+                            </a>
+                        </li>*@
+                    <!-- Bài viết -->
+                    <li class="gui-folder">
+                        <a>
+                            <div class="gui-icon"><i class="fa fa-newspaper-o"></i></div>
+                            <span class="title">Bài viết</span>
+                        </a>
+                        <!--start submenu -->
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Posts", new { Area = "Admin" })"><span class="title">Bài viết</span></a></li>
+                            <li><a href="@Url.Action("Index", "Categories", new { Area = "Admin" })"><span class="title">Danh mục</span></a></li>
+                        </ul>
+                    </li>
+                    <!--Bác sĩ-->
+                    <li>
+                        <a href="@Url.Action("Index", "BacSis" , new { Area="Admin" })">
+                            <div class="gui-icon"><i class="fa fa-plus-square"></i></div>
+                            <span class="title">Bác sĩ</span>
+                        </a>
+                    </li>
+                    <!--Ảnh-->
+                    <li>
+                        <a href="@Url.Action("Index", "Images" , new { Area="Admin" })">
+                            <div class="gui-icon"><i class="fa fa-file-image-o"></i></div>
+                            <span class="title">Thư viện ảnh</span>
+                        </a>
+                    </li>
+                    <!--banner-->
+                    <li>
+                        <a href="@Url.Action("Index", "Banners" , new { Area="Admin" })">
+                            <div class="gui-icon"><i class="fa fa-picture-o"></i></div>
+                            <span class="title">Banner</span>
+                        </a>
+                    </li>
+                    <!--Contact-->
+                    <li>
+                        <a href="@Url.Action("Index", "Contacts", new { Area = "Admin" })">
+                            <div class="gui-icon"><i class="fa fa-phone"></i></div>
+                            <span class="title">Khách liên hệ</span>
+                        </a>
+                    </li>
+                    <!--Video-->
+                    @*<li>
+                            <a href="@Url.Action("Index", "Videos", new { Area = "Admin" })">
+                                <div class="gui-icon"><i class="fa fa-youtube-play"></i></div>
+                                <span class="title">Video</span>
+                            </a>
+                        </li>*@
+                    <!--Image-->
+                    @*<li>
+                            <a href="@Url.Action("Index", "Images", new { Area = "Admin" })">
+                                <div class="gui-icon"><i class="fa fa-file-image-o"></i></div>
+                                <span class="title">Hình ảnh</span>
+                            </a>
+                        </li>*@
+                    <!--Account-->
+                    <li>
+                        <a href="@Url.Action("Index", "Account" , new { Area="" })">
+                            <div class="gui-icon"><i class="fa fa-users"></i></div>
+                            <span class="title">Người dùng</span>
+                        </a>
+                    </li>
+                    @*<li>
+                            <a href="https://dashboard.tawk.to/" target="_blank">
+                                <div class="gui-icon"><i class="fa fa-user-secret"></i></div>
+                                <span class="title">Chat với Khách</span>
+                            </a>
+                        </li>*@
+
+                </ul>
+
+                <div class="menubar-foot-panel">
+                    <small class="no-linebreak hidden-folded">
+                        <span class="opacity-75">Copyright &copy; 2017</span> <strong>Kết nối trẻ</strong>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- BEGIN JAVASCRIPT -->
+
+    @RenderSection("scripts", required: false)
+
+    @*<script src="~/Content/admin/js/libs/jquery/jquery-1.11.2.min.js"></script>
+        <script src="~/Content/admin/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+        <script src="~/Content/admin/js/libs/bootstrap/bootstrap.min.js"></script>*@
+
+    @*<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>*@
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!--CKEditor-->
+    <script type="text/javascript" src='@Url.Content("~/ckfinder/ckfinder.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/ckeditor/ckeditor.js")'></script>
+    <script type="text/javascript"> CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder/")'); </script>
+
+
+    <!--AngularJS-->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.min.js"></script>
+
+
+    <script src="~/Content/admin/js/libs/spin.js/spin.min.js"></script>
+    <script src="~/Content/admin/js/libs/autosize/jquery.autosize.min.js"></script>
+    <script src="~/Content/admin/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+
+    <!--Loading-->
+    <script src="~/Scripts/loading-spinner/spin.min.js"></script>
+    <script src="~/Scripts/loading-spinner/angular-spinner.min.js"></script>
+    <script src="~/Scripts/loading-spinner/angular-loading-spinner.js"></script>
+
+
+    <!--Sweet Alert-->
+    @*<script src="~/bower_components/angular-sweetalert/SweetAlert.min.js"></script>
+        <script src="~/Content/front/js/sweetsalert/sweetalert.min.js"></script>
+        <link href="~/Content/front/js/sweetsalert/sweetalert.css" rel="stylesheet" />*@
+
+    <!--UI-Grid-->
+    <script src="~/Scripts/ui-grid.min.js"></script>
+
+    <!--Message-->
+    <script src="~/Content/admin/js/libs/toastr/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            toastr.options = {
+                "positionClass": "toast-bottom-left"
+            };
+        });
+    </script>
+
+
+
+    <!--Table-->
+    <script src="~/Content/admin/js/libs/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/admin/js/libs/DataTables/extensions/ColVis/js/dataTables.colVis.min.js"></script>
+    <script src="~/Content/admin/js/libs/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+    @*<script src="~/Content/admin/js/core/demo/DemoTableDynamic.min.js"></script>*@
+
+    @*<script src="~/Content/admin/js/core/source/App.js"></script>
+        <script src="~/Content/admin/js/core/source/AppNavigation.js"></script>
+        <script src="~/Content/admin/js/core/source/AppOffcanvas.js"></script>
+        <script src="~/Content/admin/js/core/source/AppCard.js"></script>
+        <script src="~/Content/admin/js/core/source/AppForm.js"></script>
+        <script src="~/Content/admin/js/core/source/AppNavSearch.js"></script>
+        <script src="~/Content/admin/js/core/source/AppVendor.js"></script>*@
+    <script src="~/Content/admin/js/core/source/App.min.js"></script>
+    <script src="~/Content/admin/js/core/source/AppCard.min.js"></script>
+    <script src="~/Content/admin/js/core/source/AppForm.min.js"></script>
+    <script src="~/Content/admin/js/core/source/AppNavigation.min.js"></script>
+    <script src="~/Content/admin/js/core/source/AppNavSearch.min.js"></script>
+    <script src="~/Content/admin/js/core/source/AppOffcanvas.min.js"></script>
+    <script src="~/Content/admin/js/core/source/AppVendor.min.js"></script>
+    <script src="~/Content/admin/js/core/demo/Demo.js"></script>
+
+    @*<script src="~/Content/admin/js/core/demo/DemoFormEditors.js"></script>
+        <script src="~/Content/admin/js/core/demo/DemoFormComponents.js"></script>*@
+
+    <!--NG-CKEditor-->
+    <script src="~/Scripts/admin/ng-ckeditor.min.js"></script>
+
+    <!--My Script-->
+
+    <script src="~/Scripts/admin/myApp.min.js"></script>
+    <script src="~/Scripts/admin/aliasFactory.min.js"></script>
+    <script src="~/Scripts/admin/menumultilevelFactory.min.js"></script>
+    <script src="~/Scripts/admin/urlFactory.min.js"></script>
+
+    <!--Category-->
+    <script src="~/Scripts/admin/categoryFactory.min.js"></script>
+    <script src="~/Scripts/admin/themCategoryController.min.js"></script>
+    <script src="~/Scripts/admin/danhsachCategoryController.min.js"></script>
+    <!--Post-->
+    <script src="~/Scripts/admin/postFactory.min.js"></script>
+    <script src="~/Scripts/admin/themPostController.min.js"></script>
+    <script src="~/Scripts/admin/danhsachPostController.min.js"></script>
+    <!--Category Product-->
+    <script src="~/Scripts/admin/categoryProductFactory.min.js"></script>
+    <script src="~/Scripts/admin/themCategoryProductController.min.js"></script>
+    <script src="~/Scripts/admin/danhsachCategoryProductController.min.js"></script>
+    <!--Product-->
+    <script src="~/Scripts/admin/themProductController.min.js"></script>
+    <script src="~/Scripts/admin/danhsachProductController.min.js"></script>
+    <!--Banner-->
+    <script src="~/Scripts/admin/themBannerController.min.js"></script>
+    <script src="~/Scripts/admin/danhsachBannerController.min.js"></script>
+    <!--Video-->
+    <script src="~/Scripts/admin/themVideoController.js"></script>
+    <script src="~/Scripts/admin/danhsachVideoController.js"></script>
+    <!--Contact-->
+    <script src="~/Scripts/admin/danhsachContactController.min.js"></script>
+    <script src="~/Scripts/admin/themContactController.min.js"></script>
+    <!--Bác sĩ-->
+    <script src="~/Scripts/admin/danhsachBacSiController.min.js"></script>
+    <script src="~/Scripts/admin/themBacSiController.min.js"></script>
+    <!--Image-->
+    <script src="~/Scripts/admin/danhsachImageController.min.js"></script>
+    <script src="~/Scripts/admin/themImageController.min.js"></script>
+</body>
+
+</html>

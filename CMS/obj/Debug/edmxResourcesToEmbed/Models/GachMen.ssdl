@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GachMenLongKhanhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="text_link" Type="nvarchar" MaxLength="20" />
+    <Property Name="image" Type="ntext" />
+    <Property Name="ghichu" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="idCategory" />
+    </Key>
+    <Property Name="idCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoryParent" Type="int" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+    <Property Name="timeCreated" Type="datetime" />
+    <Property Name="timeModified" Type="datetime" />
+    <Property Name="title" Type="nvarchar(max)" />
+    <Property Name="alias" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="published" Type="int" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="varchar" MaxLength="50" />
+    <Property Name="deleted" Type="int" />
+    <Property Name="metadescription" Type="nvarchar(max)" />
+    <Property Name="metakewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CategoryProduct">
+    <Key>
+      <PropertyRef Name="idCategory" />
+    </Key>
+    <Property Name="idCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoryParent" Type="int" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+    <Property Name="timeCreated" Type="datetime" />
+    <Property Name="timeModified" Type="datetime" />
+    <Property Name="title" Type="nvarchar(max)" />
+    <Property Name="alias" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="published" Type="int" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="varchar" MaxLength="50" />
+    <Property Name="deleted" Type="int" />
+    <Property Name="metadescription" Type="nvarchar(max)" />
+    <Property Name="metakewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar(max)" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+    <Property Name="image_banner" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="idContact" />
+    </Key>
+    <Property Name="idContact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hoten" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="diachi" Type="nvarchar(max)" />
+    <Property Name="sdt" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="200" />
+    <Property Name="title" Type="nvarchar(max)" />
+    <Property Name="content" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoryProduct" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="anh" Type="ntext" />
+    <Property Name="ghichu" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="diaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="50" />
+    <Property Name="sanPham" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="soLuong" Type="int" />
+    <Property Name="idProduct" Type="int" />
+    <Property Name="checked" Type="int" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="idPost" />
+    </Key>
+    <Property Name="idPost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategory" Type="int" Nullable="false" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+    <Property Name="timeCreated" Type="datetime" />
+    <Property Name="timeModified" Type="datetime" />
+    <Property Name="title" Type="nvarchar" MaxLength="500" />
+    <Property Name="alias" Type="varchar(max)" />
+    <Property Name="content" Type="ntext" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="published" Type="int" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="varchar" MaxLength="50" />
+    <Property Name="deleted" Type="int" />
+    <Property Name="featured" Type="int" />
+    <Property Name="metadescription" Type="nvarchar(max)" />
+    <Property Name="metakewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="idProduct" />
+    </Key>
+    <Property Name="idProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoryProduct" Type="int" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="idUserModified" Type="varchar" MaxLength="50" />
+    <Property Name="timeCreated" Type="datetime" />
+    <Property Name="timeModified" Type="datetime" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="alias" Type="varchar(max)" />
+    <Property Name="content" Type="ntext" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="price" Type="float" />
+    <Property Name="KichThuoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChatLieu" Type="nvarchar" MaxLength="50" />
+    <Property Name="published" Type="int" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="varchar" MaxLength="50" />
+    <Property Name="deleted" Type="int" />
+    <Property Name="feature" Type="ntext" />
+    <Property Name="metadescription" Type="nvarchar(max)" />
+    <Property Name="metakewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="56" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="link_video" Type="ntext" />
+    <Property Name="link_post" Type="ntext" />
+    <Property Name="note" Type="ntext" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Category_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="idCategory" />
+      </Principal>
+      <Dependent Role="Category1">
+        <PropertyRef Name="idCategoryParent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryProduct_CategoryProduct">
+    <End Role="CategoryProduct" Type="Self.CategoryProduct" Multiplicity="0..1" />
+    <End Role="CategoryProduct1" Type="Self.CategoryProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryProduct">
+        <PropertyRef Name="idCategory" />
+      </Principal>
+      <Dependent Role="CategoryProduct1">
+        <PropertyRef Name="idCategoryParent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GachMenLongKhanhModelStoreContainer">
+    <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryProduct" EntityType="Self.CategoryProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Category_Category" Association="Self.FK_Category_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Category1" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryProduct_CategoryProduct" Association="Self.FK_CategoryProduct_CategoryProduct">
+      <End Role="CategoryProduct" EntitySet="CategoryProduct" />
+      <End Role="CategoryProduct1" EntitySet="CategoryProduct" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="User" EntitySet="User" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

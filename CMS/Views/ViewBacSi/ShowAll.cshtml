@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách bác sĩ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ourteam" id="ourteam" ng-controller="bacSiController">
+    <div class="container">
+        <h6>Đội Ngũ Bác Sĩ</h6>
+        <ul class="ch-grid">
+
+            <li dir-paginate="(index, value) in bacSis | itemsPerPage:12">
+                <a href="/bac-si/{{value.id}}" class="lightbox"></a><div class="ch-item " style="background-image: url(&quot;{{value.anh}}&quot;);">
+                    <a href="/bac-si/{{value.id}}" class="lightbox"></a>
+                    <div class="ch-info">
+                        <a href="/bac-si/{{value.id}}" class="lightbox"></a>
+                        <div class="soci">
+                            <a href="/bac-si/{{value.id}}" class="lightbox"></a>
+                            <h5>
+                                <a href="mailto:{{value.email}}" style="font-size:1.5em;" title="gửi mail" target="_blank"><i class="fa fa-envelope-o"></i></a>
+                                <a href="{{value.fb}}" style="font-size:1.5em;" title="liên hệ facebook" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                <a href="{{value.zalo}}" style="font-size:1.5em;" title="Liên hệ zalo" target="_blank"><i class="fa fa-telegram"></i></a>
+                                <a href="/bac-si/{{value.id}}" style="font-size:1.5em;" title="Xem thông tin"><i class="fa fa-hand-o-right"></i></a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ccontainer" style="text-align:center"><dir-pagination-controls></dir-pagination-controls></div>
+        @*<div class="social">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/KetnoitreJsc/?fref=ts" target="_blank"><i class="fa fa-facebok"> </i></a></li>
+                <li><a href="https://twitter.com/wwwpavietnamcom" target="_blank"><i class="twiter"> </i></a></li>
+                <li><a href="https://plus.google.com/114627120430815730885/posts" target="_blank"><i class="goog"> </i></a></li>
+                <li><a href="https://plus.google.com/114627120430815730885/posts" target="_blank"><i class="inst"> </i></a></li>
+                <li><a href="https://www.youtube.com/channel/UC2CD0jJ4HZLCZReyCyzwp0g" target="_blank"><i class="te"> </i></a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>*@
+    </div>
+</div>
